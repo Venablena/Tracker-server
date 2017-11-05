@@ -1,0 +1,19 @@
+{
+  "name": "sfzc_calendar_db",
+  "version": "1.0.0",
+  "description": "Server and database for SFZC Calendar",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Venablena/SFZC_db.git"
+  },
+  "author": "Lena Venable",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Venablena/SFZC_db/issues"
+  },
+  "homepage": "https://github.com/Venablena/SFZC_db#readme"
+}
