@@ -4,7 +4,8 @@
   "description": "Server and database for SFZC Calendar",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "knex": "knex",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/Venablena/SFZC_db/issues"
   },
-  "homepage": "https://github.com/Venablena/SFZC_db#readme"
+  "homepage": "https://github.com/Venablena/SFZC_db#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "knex": "^0.13.0",
+    "pg": "^7.4.0",
+    "uuid": "^3.1.0"
+  }
 }
