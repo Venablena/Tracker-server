@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const ctrl = require('../controllers/controllers')
 
-router.get('/', ctrl.getAll)
+router.get('/', ctrl.get)
 router.post('/', ctrl.create)
 router.get('/:id', ctrl.show)
 router.patch('/:id', ctrl.update)

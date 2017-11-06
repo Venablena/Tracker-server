@@ -1,9 +1,20 @@
 console.log("controller running");
-const model = require('../models/models')
+//const model = require('../models/models')
+const { Model } = require('../models/models')
 
-function getAll (req, res, next) {
-  const data = model.get()
-  res.json(data)
+// function get (req, res, next) {
+//   model.get().then(result => {
+//     result.forEach(item =>{ console.log(item.name)})
+//     res.json(result)
+//   })
+// }
+
+// WHY DOES THIS CRASH?
+function get (req, res, next) {
+  Model.get().then(result => {
+    console.log({ result });
+    res.json({ result })
+  })
 }
 
 // const { Post } = require('../models')
@@ -16,25 +27,25 @@ function getAll (req, res, next) {
 // }
 
 function create (req, res, next) {
-  Post.create(req.body).then(post => {
+  model.create(req.body).then(post => {
     res.status(201).json({ post })
   })
 }
 
 function show (req, res, next) {
-  Post.find(req.params.id).then(post => {
+  model.find(req.params.id).then(post => {
     res.json({ post })
   })
 }
 
 function destroy (req, res, next) {
-  Post.destroy(req.params.id).then(post => {
+  model.destroy(req.params.id).then(post => {
     res.json({ post })
   })
 }
 
-function patch (req, res, next) {
-  Post.patch(req.params.id, req.body).then(post => {
+function update (req, res, next) {
+  model.patch(req.params.id, req.body).then(post => {
     res.json({ post })
   })
 }
@@ -73,6 +84,6 @@ function patch (req, res, next) {
 // }
 
 module.exports = {
-  get, create, show, destroy, patch,
+  get, create, show, destroy, update
   //validations: { exists, prune, complete }
 }
