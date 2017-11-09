@@ -1,53 +1,34 @@
 console.log("controller running");
-//const model = require('../models/models')
-const { Model } = require('../models/models')
+const model = require('../models/models')
 
-// function get (req, res, next) {
-//   model.get().then(result => {
-//     result.forEach(item =>{ console.log(item.name)})
-//     res.json(result)
-//   })
-// }
-
-// WHY DOES THIS CRASH?
 function get (req, res, next) {
-  Model.get().then(result => {
-    console.log({ result });
-    res.json({ result })
-  })
+  model.get().then(result => {
+    res.json(result)
+  }).catch(error => next(error))
 }
 
-// const { Post } = require('../models')
-// const fields = [ 'title', 'content' ]
-//
-// function get (req, res, next) {
-//   Post.get().then(posts => {
-//     res.json({ posts })
-//   })
-// }
-
 function create (req, res, next) {
-  model.create(req.body).then(post => {
-    res.status(201).json({ post })
-  })
+  model.create(req.body).then(result => {
+    res.status(201).json(result)
+  }).catch(error => next(error))
 }
 
 function show (req, res, next) {
-  model.find(req.params.id).then(post => {
-    res.json({ post })
-  })
+  model.find(req.params.id).then(result => {
+    res.json(result)
+  }).catch(error => next(error))
 }
 
 function destroy (req, res, next) {
-  model.destroy(req.params.id).then(post => {
-    res.json({ post })
-  })
+  model.destroy(req.params.id).then(result => {
+    res.json(result)
+  }).catch(error => next(error))
 }
 
 function update (req, res, next) {
-  model.patch(req.params.id, req.body).then(post => {
-    res.json({ post })
-  })
+  model.patch(req.params.id, req.body).then(result => {
+    res.json(result)
+  }).catch(error => next(error))
 }
 
 // function exists (req, res, next) {

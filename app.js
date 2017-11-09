@@ -16,7 +16,7 @@ app.use('/events', routes)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
-  res.status(status).json({ error: err })
+  res.status(status).json({ error: { message: 'Server error' }})
 })
 
 app.use((req, res, next) => {

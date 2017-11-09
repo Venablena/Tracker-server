@@ -1,12 +1,9 @@
 console.log("models running");
-// const path = require('path')
-// const fs = require('fs')
-//
-// const filePath = path.join(__dirname, '../assets/db_posts.json')
+const env = process.env.NODE_ENV || 'development'
+
 const knex = require('../db/connection')
 
-function get () {
-  //console.log(knex('events'))
+function get() {
   return knex('events')
 }
 
