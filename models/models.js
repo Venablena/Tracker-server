@@ -28,10 +28,10 @@ function destroy (id) {
 
 function patch (id, patch) {
   return knex('events')
-    // .update(patch)
-    // .where({ id })
-    // .returning('*')
-    // .then(([ item ]) => item)
+    .update(patch)
+    .where({ id })
+    .returning('*')
+    .then(([ item ]) => item)
 }
 
 module.exports = {
