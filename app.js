@@ -12,7 +12,7 @@ app.use(cors())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 const routes = require('./routes/routes')
-app.use('/events', routes)
+app.use('/logs', routes)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
