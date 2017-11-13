@@ -1,0 +1,20 @@
+
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable('logs', table => {
+    table.increments().notNullable()
+    table.date('date').notNullable()
+    table.time('time').notNullable()
+    table.decimal('long').notNullable()
+    table.decimal('lat').notNullable()
+    table.integer('location_id')
+    table.foreign('location_id').references('locations')
+    table.string('tag')
+    table.foreign('tag').references('tags')
+    table.string('description').notNullable().defaultTo('')
+  })
+
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable('logs')
+};
