@@ -1,7 +1,7 @@
 {
-  "name": "sfzc_calendar_db",
+  "name": "Tracker-server",
   "version": "1.0.0",
-  "description": "Server and database for SFZC Calendar",
+  "description": "Server and database for Tracker app",
   "main": "app.js",
   "scripts": {
     "knex": "knex",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Venablena/SFZC_db.git"
+    "url": "git+https://github.com/Venablena/Tracker-server.git"
   },
   "author": "Lena Venable",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Venablena/SFZC_db/issues"
+    "url": "https://github.com/Venablena/Tracker-server/issues"
   },
-  "homepage": "https://github.com/Venablena/SFZC_db#readme",
+  "homepage": "https://github.com/Venablena/Tracker-server#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
