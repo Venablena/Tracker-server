@@ -3,15 +3,19 @@ const env = process.env.NODE_ENV || 'development'
 
 const knex = require('../db/connection')
 
-function get() {
+function getLogs() {
   return knex('logs')
 }
 
-function create (body) {
-  return knex('logs')
-    .insert(body)
-    .returning('*')
-    .then(([item]) => item)
+function createMap (body) {
+  return knex('maps').insert(body.map, '*')
+    .then(([result]) => {
+      let newLogs = body.markers.map(item => {
+       return {log_id: item, map_id: result.id }
+        })
+        return knex('maps_logs').insert(newLogs)
+        .then([result] => result)
+      })
 }
 
 function find (id) {
@@ -35,5 +39,5 @@ function patch (id, patch) {
 }
 
 module.exports = {
-  get, create, find, destroy, patch
+  getLogs, createMap, find, destroy, patch
 }

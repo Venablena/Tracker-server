@@ -2,13 +2,13 @@ console.log("controller running");
 const model = require('../models/models')
 
 function get (req, res, next) {
-  model.get().then(result => {
+  model.getLogs().then(result => {
     res.json(result)
   }).catch(error => next(error))
 }
 
 function create (req, res, next) {
-  model.create(req.body).then(result => {
+  model.createMap(req.body).then(result => {
     res.status(201).json(result)
   }).catch(error => next(error))
 }
