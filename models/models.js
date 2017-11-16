@@ -7,14 +7,23 @@ function getLogs() {
   return knex('logs')
 }
 
+function getMaps() {
+  return knex('maps')
+}
+
 function createMap (body) {
   return knex('maps').insert(body.map, '*')
-    .then(([result]) => {
+    .then(([newMap]) => {
       let newLogs = body.markers.map(item => {
-       return {log_id: item, map_id: result.id }
+       return {log_id: item, map_id: newMap.id }
         })
         return knex('maps_logs').insert(newLogs)
-        .then([result] => result)
+        // .returning('*')
+        // .then(([ item ]) => item)
+        .then(() => newMap)
+      })
+      .catch(error => {
+       console.error(error)
       })
 }
 
@@ -39,5 +48,5 @@ function patch (id, patch) {
 }
 
 module.exports = {
-  getLogs, createMap, find, destroy, patch
+  getLogs, getMaps, createMap, find, destroy, patch
 }
