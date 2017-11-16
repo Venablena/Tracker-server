@@ -1,4 +1,3 @@
-console.log("controller running");
 const model = require('../models/models')
 
 function getLogs (req, res, next) {
@@ -19,8 +18,14 @@ function create (req, res, next) {
   }).catch(error => next(error))
 }
 
-function show (req, res, next) {
+function showMap (req, res, next) {
   model.findMap(req.params.id).then(result => {
+    res.json(result)
+  }).catch(error => next(error))
+}
+
+function showLog (req, res, next) {
+  model.findLog(req.params.id).then(result => {
     res.json(result)
   }).catch(error => next(error))
 }
@@ -38,5 +43,5 @@ function update (req, res, next) {
 }
 
 module.exports = {
-  getMaps, getLogs, create, show, destroy, update
+  getMaps, getLogs, create, showMap, showLog, destroy, update
 }

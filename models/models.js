@@ -29,7 +29,11 @@ function findMap (id) {
     .join('maps_logs', 'logs.id', 'log_id')
     .join('maps', 'maps.id', 'map_id')
     .where('maps.id', id)
-  .then((result) => result)
+    .then((result) => result)
+}
+
+function findLog (id) {
+  return knex('logs').where({id}).first()
 }
 
 function destroy (id) {
@@ -49,5 +53,5 @@ function patch (id, patch) {
 }
 
 module.exports = {
-  getLogs, getMaps, createMap, findMap, destroy, patch
+  getLogs, getMaps, createMap, findMap, findLog, destroy, patch
 }
