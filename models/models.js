@@ -25,7 +25,7 @@ function createMap (body) {
 }
 
 function findMap (id) {
-  return knex('logs')
+  return knex('logs').select('*', 'logs.id AS id')
     .join('maps_logs', 'logs.id', 'log_id')
     .join('maps', 'maps.id', 'map_id')
     .where('maps.id', id)
