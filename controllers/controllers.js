@@ -20,7 +20,7 @@ function create (req, res, next) {
 }
 
 function show (req, res, next) {
-  model.find(req.params.id).then(result => {
+  model.findMap(req.params.id).then(result => {
     res.json(result)
   }).catch(error => next(error))
 }

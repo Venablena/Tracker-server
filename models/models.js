@@ -22,13 +22,14 @@ function createMap (body) {
         // .then(([ item ]) => item)
         .then(() => newMap)
       })
-      .catch(error => {
-       console.error(error)
-      })
 }
 
-function find (id) {
-  return knex('logs').where({ id }).first()
+function findMap (id) {
+  return knex('logs')
+    .join('maps_logs', 'logs.id', 'log_id')
+    .join('maps', 'maps.id', 'map_id')
+    .where('maps.id', id)
+  .then((result) => result)
 }
 
 function destroy (id) {
@@ -48,5 +49,5 @@ function patch (id, patch) {
 }
 
 module.exports = {
-  getLogs, getMaps, createMap, find, destroy, patch
+  getLogs, getMaps, createMap, findMap, destroy, patch
 }
