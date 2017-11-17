@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 const parser = require('body-parser')
-const morgan = require('morgan')
 const cors = require('cors')
 
 app.disable('x-powered-by')
