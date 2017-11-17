@@ -9,8 +9,6 @@ app.disable('x-powered-by')
 app.use(parser.json())
 app.use(cors())
 
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
-
 const routes = require('./routes/routes')
 app.use('/', routes)
 
