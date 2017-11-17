@@ -1,4 +1,3 @@
-console.log("models running");
 const env = process.env.NODE_ENV || 'development'
 
 const knex = require('../db/connection')
