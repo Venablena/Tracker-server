@@ -51,10 +51,6 @@ function patch (id, patch) {
 }
 
 function transferData (body) {
-  // console.log("data transfer");
-  // let sheetData = body.map(array => {
-  //   return {tag: array[0], dateTime: array[1], long: array[2], lat: array[3]}
-  // })
   return knex('logs').insert(body, '*')
     .then((response) => response)
 }
