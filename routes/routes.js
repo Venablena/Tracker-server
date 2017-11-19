@@ -9,5 +9,9 @@ router.get('/maps/:id', ctrl.showMap)
 router.get('/logs/:id', ctrl.showLog)
 router.patch('/:id', ctrl.update)
 router.delete('/:id', ctrl.destroy)
+router.post('/logs', ctrl.refreshLogs)
 
 module.exports = router
+
+//sheets
+//https://sheets.googleapis.com/v4/spreadsheets/1e1GkbibPFIxJEyuWQsZnudRE2q3rQmTppUXr7-wrP1w/values/sheet1?key=AIzaSyDMxY1rQgAG7PruMhTZDNHMXDZ3nT_mUNc

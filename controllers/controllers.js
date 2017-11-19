@@ -1,4 +1,5 @@
 const model = require('../models/models')
+const sheet = require('../models/sheets')
 
 function getLogs (req, res, next) {
   model.getLogs().then(result => {
@@ -42,6 +43,12 @@ function update (req, res, next) {
   }).catch(error => next(error))
 }
 
+function refreshLogs (req, res, next) {
+  model.transferData(req.body).then(result => {
+    res.json(result)
+  }).catch(error => next(error))
+}
+
 module.exports = {
-  getMaps, getLogs, create, showMap, showLog, destroy, update
+  getMaps, getLogs, create, showMap, showLog, destroy, update, refreshLogs
 }

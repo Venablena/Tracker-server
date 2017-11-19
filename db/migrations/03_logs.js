@@ -2,9 +2,9 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('logs', table => {
     table.increments().notNullable()
-    table.string('date').notNullable()
-    table.string('time').notNullable()
-    //table.date('date').notNullable()
+    // table.string('date').notNullable()
+    // table.string('time').notNullable()
+    table.string('dateTime').notNullable()
     //table.time('time').notNullable()
     table.double('long').notNullable()
     table.double('lat').notNullable()
