@@ -1,5 +1,6 @@
 const model = require('../models/models')
 
+// Logs and Maps should be in separate files
 function getLogs (req, res, next) {
   model.getLogs().then(result => {
     res.json(result)
