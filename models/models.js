@@ -2,6 +2,7 @@ const env = process.env.NODE_ENV || 'development'
 
 const knex = require('../db/connection')
 
+// These should be split up into different files!
 function getLogs() {
   return knex('logs')
 }
@@ -17,8 +18,7 @@ function createMap (body) {
        return {log_id: item, map_id: newMap.id }
         })
         return knex('maps_logs').insert(newLogs)
-        // .returning('*')
-        // .then(([ item ]) => item)
+        // remove dead code!
         .then(() => newMap)
       })
 }
